@@ -1,0 +1,15 @@
+# Paths
+keys/
+secrets/
+
+.ipynb_checkpoints/
+.terraform/
+
+.*venv/
+
+# Files
+*.pyc
+*.exe
+*.hcl
+
+tfstate.json
