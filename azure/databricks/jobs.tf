@@ -15,7 +15,7 @@ resource "databricks_job" "job_single_existing_cluster" {
     ]
   }
 }
-
+/*
 resource "databricks_job" "job_single" {
   name = var.databricks_jobs.job_single_cluster.name
 
@@ -47,6 +47,7 @@ resource "databricks_job" "job_single" {
     ]
   }
 }
+*/
 /*
 resource "databricks_job" "job_main" {
   name = "Job with multiple tasks"

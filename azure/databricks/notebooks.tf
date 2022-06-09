@@ -1,3 +1,4 @@
+/*
 resource "databricks_notebook" "notebook_ml" {
   path     = "${data.databricks_current_user.current_user.home}/terraform/numpy.ipynb"
   language = "PYTHON"
@@ -9,7 +10,7 @@ resource "databricks_notebook" "notebook_ml" {
     EOT
   )
 }
-
+*/
 resource "databricks_notebook" "notebooks_py" {
   for_each       = fileset("${path.module}/${var.databricks_notebooks.notebooks_py_path}", "*.py")
   path           = "${data.databricks_current_user.current_user.home}/${var.databricks_notebooks.notebooks_py_path}/${each.value}"
