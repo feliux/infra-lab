@@ -1,1 +1,1 @@
-# terraform_infra
+# Terraform infrastructure
