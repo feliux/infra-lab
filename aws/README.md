@@ -1,8 +1,8 @@
 # AWS Infrastructure
 
-**Authentiation**
+**Authentication**
 
-- Credentials on file
+- Credentials on file: used for local deployment
 
 Terraform variable to credentials filepath:
 
@@ -31,7 +31,7 @@ provider "aws" {
 }
 ~~~
 
-- Credentials as environment variable
+- Credentials as environment variable: used for local deployment nor Terraform Cloud
 
 ~~~
 AWS_ACCESS_KEY_ID=changeme
