@@ -1,7 +1,6 @@
 data "aws_ami" "ubuntu" {
   most_recent = true
   owners      = ["099720109477"]
-
   filter {
     name = "name"
     values = [
@@ -24,11 +23,11 @@ data "template_file" "config_intruder" {
 
 resource "aws_key_pair" "ssh_key" {
   key_name = var.ubuntu_server.ssh_key_name
-  #public_key = file(var.ubuntu_server.ssh_key_path)
-  public_key = base64decode(var.ubuntu_server.ssh_key_base64)
-
+  # public_key = file(var.ubuntu_server.ssh_key_path)
+  # public_key = base64decode(var.ubuntu_server.ssh_key_base64)
+  public_key = base64decode(var.ssh_public_key)
   tags = {
-    Terraform = true
+    terraform = true
   }
 }
 
@@ -41,10 +40,9 @@ resource "aws_instance" "ubuntu_server" {
   security_groups = [
     aws_security_group.ingress_all.id
   ]
-
   tags = {
     Name      = var.ubuntu_server.name
-    Terraform = true
+    terraform = true
   }
 }
 
@@ -57,9 +55,8 @@ resource "aws_instance" "ubuntu_intruder" {
   security_groups = [
     aws_security_group.ingress_all.id
   ]
-
   tags = {
     Name      = var.ubuntu_intruder.name
-    Terraform = true
+    terraform = true
   }
 }

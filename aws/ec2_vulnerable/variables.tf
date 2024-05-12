@@ -1,12 +1,9 @@
-### ENVIRONMENT ###
-
 variable "region" {
   description = "Region for cloud resources"
   default     = "us-east-1"
 }
 
-### NETWORK ###
-
+// Network
 variable "custom_vpc" {
   default = {
     name                     = "custom_vpc_1"
@@ -22,7 +19,10 @@ variable "custom_vpc" {
   }
 }
 
-### EC2 ###
+// EC2
+variable "ssh_public_key" { // for TCloud
+  description = "Public key for connecting via SHH"
+}
 
 variable "ubuntu_server" {
   default = {
@@ -30,10 +30,10 @@ variable "ubuntu_server" {
     instance_type = "t3.nano"
     server_os     = "ubuntu/images/hvm-ssd/ubuntu-focal-20.04-amd64-server-*"
     ssh_key_name  = "ssh_ubuntu_server"
-    #  ssh_key_path     = "keys/aws_key.pub"
-    ssh_key_base64   = "changeme"
+    # ssh_key_path     = "keys/aws_key.pub"
+    # ssh_key_base64   = "changeme" // base64 ssh public key
     webserver        = "apache2"
-    webserver_user   = "www-data" # root for securized
+    webserver_user   = "www-data" // root for securized
     bash_config_path = "templates/config_victim_lfi.tpl"
   }
 }
