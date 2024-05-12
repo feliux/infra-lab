@@ -41,7 +41,7 @@ resource "aws_instance" "ubuntu_server" {
     aws_security_group.ingress_all.id
   ]
   tags = {
-    Name      = var.ubuntu_server.name
+    name      = var.ubuntu_server.name
     terraform = true
   }
 }
@@ -56,7 +56,7 @@ resource "aws_instance" "ubuntu_intruder" {
     aws_security_group.ingress_all.id
   ]
   tags = {
-    Name      = var.ubuntu_intruder.name
+    name      = var.ubuntu_intruder.name
     terraform = true
   }
 }

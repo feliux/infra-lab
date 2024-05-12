@@ -2,20 +2,19 @@ resource "aws_vpc" "ec2_vpc" {
   cidr_block           = var.custom_vpc.cidr_block
   enable_dns_hostnames = var.custom_vpc.enable_dns_hostnames
   enable_dns_support   = var.custom_vpc.enable_dns_support
-
   tags = {
-    Name      = var.custom_vpc.name
-    Terraform = true
+    name      = var.custom_vpc.name
+    terraform = true
   }
 }
 
-# This will attach a public ip to our instance
+// This will attach a public ip to our instance
 resource "aws_eip" "ip_ubuntu" {
   instance = aws_instance.ubuntu_server.id
   vpc      = true
   tags = {
-    Name      = var.custom_vpc.gateway_name
-    Terraform = true
+    name      = var.custom_vpc.gateway_name
+    terraform = true
   }
 }
 
@@ -23,8 +22,8 @@ resource "aws_eip" "ip_ubuntu_intruder" {
   instance = aws_instance.ubuntu_intruder.id
   vpc      = true
   tags = {
-    Name      = var.custom_vpc.gateway_name
-    Terraform = true
+    name      = var.custom_vpc.gateway_name
+    terraform = true
   }
 }
 
@@ -32,8 +31,8 @@ resource "aws_eip" "ip_ubuntu_intruder" {
 resource "aws_internet_gateway" "gw_ubuntu" {
   vpc_id = aws_vpc.ec2_vpc.id
   tags = {
-    Name      = var.custom_vpc.gateway_name
-    Terraform = true
+    name      = var.custom_vpc.gateway_name
+    terraform = true
   }
 }
 
@@ -52,8 +51,8 @@ resource "aws_route_table" "route_table" {
     gateway_id = aws_internet_gateway.gw_ubuntu.id
   }
   tags = {
-    Name      = var.custom_vpc.route_table_name
-    Terraform = true
+    name      = var.custom_vpc.route_table_name
+    terraform = true
   }
 }
 
