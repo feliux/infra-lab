@@ -1,5 +1,7 @@
 # Infra Lab
 
+This repository contains some tools and scripts for deploying infraestructure services.
+
 ### Terraform
 
 ```sh
