@@ -22,6 +22,7 @@ variable "custom_vpc" {
 // EC2
 variable "ssh_public_key" { // for TCloud
   description = "Public key for connecting via SHH"
+  default     = ""
 }
 
 variable "ubuntu_server" {
