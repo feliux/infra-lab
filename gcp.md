@@ -4,12 +4,12 @@
 
 Download the `.json` authentication file and set the following terraform variable:
 
-~~~
+```tf
 variable "credentials" {
   description = "Service account credentials in json format"
   default     = "./keys/gcp_creds.json"
 }
-~~~
+```
 
 ```json
 gcp_creds.json

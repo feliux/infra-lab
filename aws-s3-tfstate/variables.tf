@@ -6,7 +6,7 @@ variable "region" {
 variable "tfstate" {
   description = "Variables to store tfstate"
   default = {
-    bucket_name   = "terraform-ahdsbd"
+    bucket_name   = "tfstate-random-A"
     versioning    = "Enabled"
     sse_algorithm = "aws:kms"
   }

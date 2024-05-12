@@ -1,26 +1,9 @@
-provider "google" {
-  version = "~> 2.13"
-}
-
-provider "google-beta" {
-  version = "~> 2.13"
-}
-
-provider "random" {
-  version = "~> 2.2"
-}
-
-resource "random_id" "name" {
-  byte_length = 2
-}
-
 resource "google_sql_database_instance" "master" {
   name                 = "example-mysql-${random_id.name.hex}"
   project              = var.project
   region               = var.region
   database_version     = var.database_version
   master_instance_name = var.master_instance_name
-
   settings {
     tier                        = var.tier
     activation_policy           = var.activation_policy
@@ -38,7 +21,6 @@ resource "google_sql_database_instance" "master" {
     dynamic "ip_configuration" {
       for_each = [var.ip_configuration]
       content {
-
         ipv4_enabled    = lookup(ip_configuration.value, "ipv4_enabled", true)
         private_network = lookup(ip_configuration.value, "private_network", null)
         require_ssl     = lookup(ip_configuration.value, "require_ssl", null)
@@ -76,11 +58,9 @@ resource "google_sql_database_instance" "master" {
     replication_type  = var.replication_type
     availability_type = var.availability_type
   }
-
   dynamic "replica_configuration" {
     for_each = [var.replica_configuration]
     content {
-
       ca_certificate            = lookup(replica_configuration.value, "ca_certificate", null)
       client_certificate        = lookup(replica_configuration.value, "client_certificate", null)
       client_key                = lookup(replica_configuration.value, "client_key", null)
@@ -94,7 +74,6 @@ resource "google_sql_database_instance" "master" {
       verify_server_certificate = lookup(replica_configuration.value, "verify_server_certificate", null)
     }
   }
-
   timeouts {
     create = "60m"
     delete = "2h"

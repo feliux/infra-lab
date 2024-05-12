@@ -4,7 +4,7 @@ Deploy Kubernetes cluster on AWS.
 
 ## Usage
 
-Go to [here](../eks_cluster/README.md)
+Go to [here](../eks/README.md)
 
 ## References
 

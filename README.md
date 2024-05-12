@@ -1,4 +1,6 @@
-# Terraform infrastructure
+# Infra Lab
+
+### Terraform
 
 ```sh
 $ terraform init

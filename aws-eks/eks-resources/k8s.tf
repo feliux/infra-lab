@@ -29,7 +29,6 @@ resource "null_resource" "setup_cluster_binding" {
     command     = "kubectl apply -f resources/eks-console-full-access.yaml --kubeconfig kubeconfig-${var.cluster_name}"
     interpreter = ["sh", "-c"]
   }
-
   depends_on = [
     local_sensitive_file.kubeconfig
   ]
@@ -41,7 +40,6 @@ resource "null_resource" "setup_config_map" {
     command     = "kubectl apply -f resources/aws-auth-cm-tpl.yaml --kubeconfig kubeconfig-${var.cluster_name}"
     interpreter = ["sh", "-c"]
   }
-
   depends_on = [
     local_sensitive_file.kubeconfig,
     local_sensitive_file.aws_auth,

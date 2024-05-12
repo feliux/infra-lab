@@ -6,12 +6,12 @@
 
 Terraform variable to credentials filepath:
 
-~~~
+```tf
 variable "credentials" {
   description = "Service account credentials"
   default     = "./secrets/creds"
 }
-~~~
+```
 
 `creds` file:
 
