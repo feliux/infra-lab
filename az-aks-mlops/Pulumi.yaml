@@ -1,0 +1,6 @@
+name: mlops-azure-infra
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: mlops infrastructure
