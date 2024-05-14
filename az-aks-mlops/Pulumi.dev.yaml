@@ -1,0 +1,4 @@
+config:
+  aks-mlops:prefix: mlops
+  aks-mlops:location: WestUS
+  azure-native:location: WestUS
