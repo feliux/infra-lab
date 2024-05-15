@@ -13,3 +13,6 @@ secrets/
 *.hcl
 
 tfstate.json
+
+# Secrets
+*secrets*
